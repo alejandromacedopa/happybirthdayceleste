@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Feliz Cumpleaños Celeste 💙</title>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Quicksand', sans-serif;
+      background: linear-gradient(135deg, #a2d4f7, #d4f1ff);
+      color: #023e8a;
+      text-align: center;
+      overflow-x: hidden;
+      position: relative;
+    }
+    header {
+      padding: 80px 20px 40px;
+    }
+    h1 {
+      font-family: 'Great Vibes', cursive;
+      font-size: 3.5em;
+      color: #0077b6;
+      margin-bottom: 10px;
+      animation: fadeIn 2s ease;
+    }
+    h2 {
+      font-size: 1.8em;
+      font-weight: 400;
+      margin-bottom: 20px;
+      animation: fadeIn 3s ease;
+    }
+    section {
+      padding: 30px 20px;
+      font-size: 1.2em;
+      animation: fadeInUp 2s ease;
+    }
+    footer {
+      margin-top: 40px;
+      padding: 20px;
+      font-size: 0.9em;
+      color: #023047;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.9); }
+      to { opacity: 1; transform: scale(1); }
+    }
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .carta {
+      margin: 20px auto;
+      width: 90%;
+      max-width: 500px;
+      background: #e0f7ff;
+      padding: 20px;
+      border-radius: 15px;
+      box-shadow: 0 0 20px rgba(0, 119, 182, 0.2);
+      text-align: left;
+      color: #023e8a;
+    }
+    .carta h3 {
+      font-family: 'Great Vibes', cursive;
+      font-size: 1.8em;
+      margin-bottom: 10px;
+      color: #0096c7;
+    }
+    .btn-sorpresa {
+      margin-top: 20px;
+      background: #0077b6;
+      color: white;
+      padding: 12px 25px;
+      border: none;
+      border-radius: 25px;
+      font-size: 1em;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    .btn-sorpresa:hover {
+      background: #023e8a;
+    }
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 999;
+      left: 0; top: 0;
+      width: 100vw;
+      height: 100vh;
+      background-color: rgba(0, 0, 0, 0.6);
+      justify-content: center;
+      align-items: center;
+      animation: fadeIn 0.5s ease;
+    }
+    .modal-content {
+      background: #ffffff;
+      border-radius: 20px;
+      padding: 30px;
+      max-width: 90%;
+      width: 400px;
+      text-align: center;
+      color: #0077b6;
+      box-shadow: 0 0 30px rgba(0, 0, 0, 0.3);
+      position: relative;
+      animation: zoomIn 0.5s ease;
+    }
+    @keyframes zoomIn {
+      from { transform: scale(0.7); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+    .modal-content h3 {
+      font-family: 'Great Vibes', cursive;
+      font-size: 2em;
+      margin-bottom: 10px;
+      color: #0096c7;
+    }
+    .close-btn {
+      position: absolute;
+      top: 15px;
+      right: 20px;
+      font-size: 1.5em;
+      cursor: pointer;
+      color: #aaa;
+    }
+    .besitos {
+      font-size: 2em;
+      animation: besitosAnim 1.2s infinite ease-in-out;
+    }
+    @keyframes besitosAnim {
+      0%, 100% { transform: scale(1); opacity: 1; }
+      50% { transform: scale(1.3); opacity: 0.8; }
+    }
+    .heart {
+      position: fixed;
+      width: 20px;
+      height: 20px;
+      background: #00b4d8;
+      transform: rotate(45deg);
+      animation: floatHeart 8s linear infinite;
+      z-index: 1;
+    }
+    .heart::before,
+    .heart::after {
+      content: "";
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: #00b4d8;
+      border-radius: 50%;
+    }
+    .heart::before { top: -10px; left: 0; }
+    .heart::after { left: -10px; top: 0; }
+    @keyframes floatHeart {
+      0% { bottom: -20px; opacity: 1; }
+      100% { bottom: 100vh; left: calc(100vw * var(--x)); opacity: 0; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>¡Feliz Cumpleaños Celeste! 🎂</h1>
+    <h2>Disfruta mucho este día tan especial como tú 💙</h2>
+  </header>
+  <section>
+    <div class="carta">
+      <h3>Celeste,</h3>
+      <p>Hoy el cielo está más brillante porque es tu día. Que cada minuto esté lleno de alegría, y cada momento esté rodeado de las personas que más quieres.</p>
+      <p>¡Nunca dejes de sonreír, soñar y brillar! ✨</p>
+      <p style="text-align: right;">Con mucho cariño,<br/>Alejandro</p>
+    </div>
+    <button class="btn-sorpresa" onclick="mostrarModal()">💝 Ver mi sorpresa</button>
+  </section>
+  <footer>
+    © 2025 Hecho con 💙 para Celeste
+  </footer>
+
+  <!-- Modal con Ruleta -->
+  <div class="modal" id="modalSorpresa">
+    <div class="modal-content">
+      <span class="close-btn" onclick="cerrarModal()">×</span>
+      <h3>🌹¡Gira la ruleta, Celeste! 💙</h3>
+      <div id="ruleta" style="margin: 20px auto; width: 200px; height: 200px; border-radius: 50%; border: 8px solid #0077b6; position: relative; overflow: hidden; transition: transform 5s ease-out;">
+        <div style="position:absolute; width: 50%; height: 50%; background:#caf0f8; top:50%; left:50%; transform-origin: 0% 0%; transform:rotate(0deg) translate(-100%, -100%); display:flex; align-items:center; justify-content:center;">Camioneta</div>
+        <div style="position:absolute; width: 50%; height: 50%; background:#ade8f4; top:50%; left:50%; transform-origin: 0% 0%; transform:rotate(60deg) translate(-100%, -100%); display:flex; align-items:center; justify-content:center;">Nada</div>
+        <div style="position:absolute; width: 50%; height: 50%; background:#90e0ef; top:50%; left:50%; transform-origin: 0% 0%; transform:rotate(120deg) translate(-100%, -100%); display:flex; align-items:center; justify-content:center;">Abrazote 🤗</div>
+        <div style="position:absolute; width: 50%; height: 50%; background:#48cae4; top:50%; left:50%; transform-origin: 0% 0%; transform:rotate(180deg) translate(-100%, -100%); display:flex; align-items:center; justify-content:center;">Besito 💋</div>
+        <div style="position:absolute; width: 50%; height: 50%; background:#00b4d8; top:50%; left:50%; transform-origin: 0% 0%; transform:rotate(240deg) translate(-100%, -100%); display:flex; align-items:center; justify-content:center;">Ropa</div>
+        <div style="position:absolute; width: 50%; height: 50%; background:#0096c7; top:50%; left:50%; transform-origin: 0% 0%; transform:rotate(300deg) translate(-100%, -100%); display:flex; align-items:center; justify-content:center;">Crocks</div>
+      </div>
+      <div style="margin: 15px;">
+        <button onclick="girarRuleta()" class="btn-sorpresa">🏷️ Girar</button>
+      </div>
+      <div id="besoResultado" style="display:none; margin-top:20px;">
+        <p>¡Ganaste un Besito especial! 😘💙</p>
+        <div class="besitos">💋💋💋💋💋</div>
+        <img src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExd2JxaDgzZjg5MW90MTk3MmMwanJkc2V3OGVzM3h5ZDhwYTNic3VqZyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/aEXP6scfSSwQo/giphy.gif" width="200" style="margin-top:10px;">
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function mostrarModal() {
+      document.getElementById("modalSorpresa").style.display = "flex";
+    }
+    function cerrarModal() {
+      document.getElementById("modalSorpresa").style.display = "none";
+      document.getElementById("ruleta").style.transform = "rotate(0deg)";
+      document.getElementById("besoResultado").style.display = "none";
+    }
+    function girarRuleta() {
+      const ruleta = document.getElementById("ruleta");
+      const besoDiv = document.getElementById("besoResultado");
+      besoDiv.style.display = "none";
+      const vueltas = 360 * 5;
+      const anguloBesito = 180;
+      const total = vueltas + anguloBesito;
+      ruleta.style.transform = `rotate(${total}deg)`;
+      setTimeout(() => {
+        besoDiv.style.display = "block";
+      }, 5000);
+    }
+    function createHeart() {
+      const heart = document.createElement("div");
+      heart.classList.add("heart");
+      heart.style.left = Math.random() * 100 + "vw";
+      heart.style.setProperty('--x', Math.random());
+      heart.style.animationDuration = (4 + Math.random() * 4) + "s";
+      document.body.appendChild(heart);
+      setTimeout(() => heart.remove(), 8000);
+    }
+    setInterval(createHeart, 500);
+  </script>
+</body>
+</html>
